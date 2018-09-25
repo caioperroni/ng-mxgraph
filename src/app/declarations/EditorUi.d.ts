@@ -1,4 +1,4 @@
-export class EditorUi extends mxEventSource {
+declare class EditorUi extends mxEventSource {
     addBeforeUnloadListener();
     addChromelessClickHandler();
     addChromelessToolbarItems(addButton);

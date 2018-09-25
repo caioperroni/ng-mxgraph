@@ -521,6 +521,14 @@ Editor.prototype.setGraphXml = function(node)
 };
 
 /**
+ * Allow access to underlying graph
+ * author: Klazen108
+ */
+Editor.prototype.getGraph = function() {
+	return this.graph;
+}
+
+/**
  * Returns the XML node that represents the current diagram.
  */
 Editor.prototype.getGraphXml = function(ignoreSelection)
