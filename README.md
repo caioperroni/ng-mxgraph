@@ -1,3 +1,15 @@
-# mxgraph-js
+Install http-server:
 
-Just the JS portion of mxGraph. Do not submit PRs here, they belong in the mxGraph project.
+`npm install http-server -g`
+
+Serve the files:
+
+`http-server javascript`
+
+Point your browser to 
+
+`http://localhost:8080/index.html`
+
+Do draw.io things
+
+`like make a graph idk`
