@@ -346,6 +346,7 @@ var mxClient =
 	 */
 	include: function(src)
 	{
+		debugger;
 		document.write('<script src="'+src+'"></script>');
 	}
 };

@@ -1,15 +1,3 @@
-Install http-server:
+# Dataflow
 
-`npm install http-server -g`
-
-Serve the files:
-
-`http-server javascript`
-
-Point your browser to 
-
-`http://localhost:8080/index.html`
-
-Do draw.io things
-
-`like make a graph idk`
+Run `npm run start` and point your browser to `http://localhost:4200/assets/index.html` to do draw.io things
