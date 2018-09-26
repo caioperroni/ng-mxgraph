@@ -48,7 +48,7 @@ export class AppComponent implements AfterViewInit {
 
   keypress(event) {
     console.log(event, event.keyCode, event.keyIdentifier);
-    //TODO: mxGraph inheritance not being picked up, am I barking down the wrong tree?
-    console.log(this.editor.getGraph());//.getChildVertices(this.editor.getGraph().getDefaultParent()));
+    const graph = this.editor.getGraph();
+    console.log(graph.getModel().getChildVertices(graph.getDefaultParent()));
   }
 }
