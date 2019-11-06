@@ -819,6 +819,7 @@ Sidebar.prototype.addWaterPalette = function (expand) {
 		this.createVertexTemplateEntry('image;html=1;labelBackgroundColor=#ffffff;image=/assets/water_deposit.png', 120, 120, '', 'Water Deposit', null, null, 'rect rectangle box'),
 		this.createVertexTemplateEntry('image;html=1;labelBackgroundColor=#ffffff;image=/assets/mash_mixer.png', 120, 120, '', 'Mash Mixer', null, null, 'rect rectangle box'),
 		this.createVertexTemplateEntry('image;html=1;labelBackgroundColor=#ffffff;image=/assets/lauter_tun.png', 120, 120, '', 'Lauter Tun', null, null, 'rect rectangle box'),
+		this.createVertexTemplateEntry('image;html=1;labelBackgroundColor=#ffffff;image=/assets/global.svg', 120, 120, '', 'Lauter Tun', null, null, 'rect rectangle box'),
 		// this.createVertexTemplateEntry('rounded=0;whiteSpace=wrap;html=1;', 120, 60, '', 'Rectangle', null, null, 'rect rectangle box'),
 		// this.createVertexTemplateEntry('rounded=1;whiteSpace=wrap;html=1;', 120, 60, '', 'Rounded Rectangle', null, null, 'rounded rect rectangle box'),
 		// // Explicit strokecolor/fillcolor=none is a workaround to maintain transparent background regardless of current style
@@ -857,16 +858,16 @@ Sidebar.prototype.addWaterPalette = function (expand) {
 
 		// 	return this.createEdgeTemplateFromCells([cell], cell.geometry.width, cell.geometry.height, 'Curve');
 		// })),
-		this.createEdgeTemplateEntry('shape=flexArrow;endArrow=classic;startArrow=classic;html=1;fillColor=#ffffff;', 50, 50, '', 'Bidirectional Arrow', null, lineTags + 'bidirectional'),
-		this.createEdgeTemplateEntry('shape=flexArrow;endArrow=classic;html=1;fillColor=#ffffff;', 50, 50, '', 'Arrow', null, lineTags + 'directional directed'),
-		this.createEdgeTemplateEntry('shape=link;html=1;', 50, 50, '', 'Link', null, lineTags + 'link'),
-		this.createEdgeTemplateEntry('endArrow=none;dashed=1;html=1;', 50, 50, '', 'Dashed Line', null, lineTags + 'dashed undirected no'),
-		this.createEdgeTemplateEntry('endArrow=none;html=1;', 50, 50, '', 'Line', null, lineTags + 'simple undirected plain blank no'),
-		this.createEdgeTemplateEntry('endArrow=classic;startArrow=classic;html=1;', 50, 50, '', 'Bidirectional Connector', null, lineTags + 'bidirectional'),
-		this.createEdgeTemplateEntry('endArrow=classic;html=1;', 50, 50, '', 'Directional Connector', null, lineTags + 'directional directed')
+		// this.createEdgeTemplateEntry('shape=flexArrow;endArrow=classic;startArrow=classic;html=1;fillColor=#ffffff;', 50, 50, '', 'Bidirectional Arrow', null, lineTags + 'bidirectional'),
+		// this.createEdgeTemplateEntry('shape=flexArrow;endArrow=classic;html=1;fillColor=#ffffff;', 50, 50, '', 'Arrow', null, lineTags + 'directional directed'),
+		this.createEdgeTemplateEntry('shape=link;html=1;', 50, 50, '', 'Pipe', null, lineTags + 'link'),
+		this.createEdgeTemplateEntry('endArrow=none;dashed=1;html=1;', 50, 50, '', 'Optional Pipe', null, lineTags + 'dashed undirected no'),
+		// this.createEdgeTemplateEntry('endArrow=none;html=1;', 50, 50, '', 'Line', null, lineTags + 'simple undirected plain blank no'),
+		// this.createEdgeTemplateEntry('endArrow=classic;startArrow=classic;html=1;', 50, 50, '', 'Bidirectional Connector', null, lineTags + 'bidirectional'),
+		// this.createEdgeTemplateEntry('endArrow=classic;html=1;', 50, 50, '', 'Directional Connector', null, lineTags + 'directional directed')
 	];
 
-	this.addPaletteFunctions('water', 'Water Process', (expand != null) ? expand : true, fns);
+	this.addPaletteFunctions('water', 'Beer Process', (expand != null) ? expand : true, fns);
 };
 
 Sidebar.prototype.addGeneralPalette = function (expand) {
