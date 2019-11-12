@@ -1,0 +1,34 @@
+app-graph {
+  height: 100vh;
+  display: block;
+  position: relative;
+  flex-grow: 1;
+}
+
+.rigth-sidebar {
+  min-height: 300px;
+  width: 310px;
+  background-color: #212136;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.mat-toolbar {
+  background-color: #dae1e7;
+  color: #161b27;
+}
+
+.right-options {
+  display: flex;
+  flex-grow: 1;
+  justify-content: flex-end;
+  font-size: 14px;
+}
+
+mat-form-field {
+  padding-right: 20px;
+}

@@ -1,1 +1,22 @@
-<app-graph></app-graph>
+<mat-toolbar>
+  <mat-icon aria-hidden="false" aria-label="Example menu icon">menu</mat-icon>
+  <span>Digital Twins</span>
+  <div class="right-options">
+    <mat-form-field>
+      <mat-label>Process</mat-label>
+      <mat-select>
+        <mat-option *ngFor="let project of process" [value]="project">
+          {{project}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <input type="search" matInput placeholder="Go to search process">
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+  </div>
+</mat-toolbar>
+<div class="container">
+  <app-graph></app-graph>
+  <div class="rigth-sidebar"></div>
+</div>

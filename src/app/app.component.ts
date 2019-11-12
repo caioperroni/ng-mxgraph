@@ -7,4 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+  process = ['Process 1', 'Process 2', 'Process 3'];
 }
