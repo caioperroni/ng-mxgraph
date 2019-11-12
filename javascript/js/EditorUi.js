@@ -61,8 +61,8 @@ EditorUi = function (editor, container, lightbox) {
 	if (this.container == document.body) {
 		this.menubarContainer.onselectstart = textEditing;
 		this.menubarContainer.onmousedown = textEditing;
-		// this.toolbarContainer.onselectstart = textEditing;
-		// this.toolbarContainer.onmousedown = textEditing;
+		this.toolbarContainer.onselectstart = textEditing;
+		this.toolbarContainer.onmousedown = textEditing;
 		this.diagramContainer.onselectstart = textEditing;
 		this.diagramContainer.onmousedown = textEditing;
 		this.sidebarContainer.onselectstart = textEditing;
@@ -2471,14 +2471,14 @@ EditorUi.prototype.refresh = function (sizeDidChange) {
 	var tmp = 0;
 
 	if (this.menubar != null) {
-		// this.menubarContainer.style.height = this.menubarHeight + 'px';
+		this.menubarContainer.style.height = this.menubarHeight + 'px';
 		// tmp += this.menubarHeight;
 	}
 
 	if (this.toolbar != null) {
-		/*this.toolbarContainer.style.top = this.menubarHeight + 'px';
+		this.toolbarContainer.style.top = this.menubarHeight + 'px';
 		this.toolbarContainer.style.height = this.toolbarHeight + 'px';
-		tmp += this.toolbarHeight;*/
+		tmp += this.toolbarHeight;
 	}
 
 	if (tmp > 0 && !mxClient.IS_QUIRKS) {
@@ -2515,7 +2515,7 @@ EditorUi.prototype.refresh = function (sizeDidChange) {
 
 	if (quirks) {
 		this.menubarContainer.style.width = w + 'px';
-		// this.toolbarContainer.style.width = this.menubarContainer.style.width;
+		this.toolbarContainer.style.width = this.menubarContainer.style.width;
 		var sidebarHeight = Math.max(0, h - this.footerHeight - this.menubarHeight - this.toolbarHeight);
 		this.sidebarContainer.style.height = (sidebarHeight - sidebarFooterHeight) + 'px';
 		// this.formatContainer.style.height = sidebarHeight + 'px';
@@ -2567,8 +2567,8 @@ EditorUi.prototype.createTabContainer = function () {
  * Creates the required containers.
  */
 EditorUi.prototype.createDivs = function () {
-	// this.menubarContainer = this.createDiv('geMenubarContainer');
-	// this.toolbarContainer = this.createDiv('geToolbarContainer');
+	this.menubarContainer = this.createDiv('geMenubarContainer');
+	this.toolbarContainer = this.createDiv('geToolbarContainer');
 	this.sidebarContainer = this.createDiv('geSidebarContainer');
 	// this.formatContainer = this.createDiv('geSidebarContainer geFormatContainer');
 	this.diagramContainer = this.createDiv('geDiagramContainer');
@@ -2577,12 +2577,12 @@ EditorUi.prototype.createDivs = function () {
 	this.hsplit.setAttribute('title', mxResources.get('collapseExpand'));
 
 	// Sets static style for containers
-	/* this.menubarContainer.style.top = '0px';
+	this.menubarContainer.style.top = '0px';
 	this.menubarContainer.style.left = '0px';
-	this.menubarContainer.style.right = '0px'; */
-	/*this.toolbarContainer.style.left = '0px';
+	this.menubarContainer.style.right = '0px';
+	this.toolbarContainer.style.left = '0px';
 	this.toolbarContainer.style.right = '0px';
-	this.sidebarContainer.style.left = '0px';*/
+	this.sidebarContainer.style.left = '0px';
 	// this.formatContainer.style.right = '0px';
 	// this.formatContainer.style.zIndex = '1';
 	this.diagramContainer.style.right = ((this.format != null) ? this.formatWidth : 0) + 'px';
@@ -2620,7 +2620,7 @@ EditorUi.prototype.createUi = function () {
 	this.menubar = (this.editor.chromeless) ? null : this.menus.createMenubar(this.createDiv('geMenubar'));
 
 	if (this.menubar != null) {
-		// this.menubarContainer.appendChild(this.menubar.container);
+		this.menubarContainer.appendChild(this.menubar.container);
 	}
 
 	// Adds status bar in menubar
@@ -2636,7 +2636,7 @@ EditorUi.prototype.createUi = function () {
 		this.menubar.container.appendChild(this.statusContainer);
 
 		// Inserts into DOM
-		// this.container.appendChild(this.menubarContainer);
+		this.container.appendChild(this.menubarContainer);
 	}
 
 	// Creates the sidebar
@@ -2675,8 +2675,8 @@ EditorUi.prototype.createUi = function () {
 	this.toolbar = (this.editor.chromeless) ? null : this.createToolbar(this.createDiv('geToolbar'));
 
 	if (this.toolbar != null) {
-		/*this.toolbarContainer.appendChild(this.toolbar.container);
-		this.container.appendChild(this.toolbarContainer);*/
+		// this.toolbarContainer.appendChild(this.toolbar.container);
+		// this.container.appendChild(this.toolbarContainer);
 	}
 
 	// HSplit
