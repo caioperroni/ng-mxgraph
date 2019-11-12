@@ -77,15 +77,15 @@ Sidebar.prototype.init = function () {
 	this.addSearchPalette(true);
 	this.addGeneralPalette(false);
 	this.addWaterPalette(true);
-	// this.addMiscPalette(false);
-	// this.addAdvancedPalette(false);
-	// this.addBasicPalette(dir);
-	// this.addStencilPalette('arrows', mxResources.get('arrows'), dir + '/arrows.xml',
-	// 	';whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=2');
-	// this.addUmlPalette(false);
-	// this.addBpmnPalette(dir, false);
-	// this.addStencilPalette('flowchart', 'Flowchart', dir + '/flowchart.xml',
-	// 	';whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=2');
+	this.addMiscPalette(false);
+	this.addAdvancedPalette(false);
+	this.addBasicPalette(dir);
+	this.addStencilPalette('arrows', mxResources.get('arrows'), dir + '/arrows.xml',
+		';whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=2');
+	this.addUmlPalette(false);
+	this.addBpmnPalette(dir, false);
+	this.addStencilPalette('flowchart', 'Flowchart', dir + '/flowchart.xml',
+		';whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=2');
 	this.addImagePalette('clipart', mxResources.get('clipart'), dir + '/clipart/', '_128x128.png',
 		['Earth_globe', 'Empty_Folder', 'Full_Folder', 'Gear', 'Lock', 'Software', 'Virus', 'Email',
 			'Database', 'Router_Icon', 'iPad', 'iMac', 'Laptop', 'MacBook', 'Monitor_Tower', 'Printer',
@@ -819,7 +819,7 @@ Sidebar.prototype.addWaterPalette = function (expand) {
 		this.createVertexTemplateEntry('image;html=1;labelBackgroundColor=#ffffff;image=/assets/water_deposit.png', 120, 120, '', 'Water Deposit', null, null, 'rect rectangle box'),
 		this.createVertexTemplateEntry('image;html=1;labelBackgroundColor=#ffffff;image=/assets/mash_mixer.png', 120, 120, '', 'Mash Mixer', null, null, 'rect rectangle box'),
 		this.createVertexTemplateEntry('image;html=1;labelBackgroundColor=#ffffff;image=/assets/lauter_tun.png', 120, 120, '', 'Lauter Tun', null, null, 'rect rectangle box'),
-		this.createVertexTemplateEntry('image;html=1;labelBackgroundColor=#ffffff;image=/assets/global.svg', 120, 120, '', 'Lauter Tun', null, null, 'rect rectangle box'),
+		this.createVertexTemplateEntry('image;html=1;labelBackgroundColor=#ffffff;image=/assets/global.svg', 120, 120, '', 'Ambient Temperature', null, null, 'rect rectangle box'),
 		// this.createVertexTemplateEntry('rounded=0;whiteSpace=wrap;html=1;', 120, 60, '', 'Rectangle', null, null, 'rect rectangle box'),
 		// this.createVertexTemplateEntry('rounded=1;whiteSpace=wrap;html=1;', 120, 60, '', 'Rounded Rectangle', null, null, 'rounded rect rectangle box'),
 		// // Explicit strokecolor/fillcolor=none is a workaround to maintain transparent background regardless of current style
@@ -861,7 +861,8 @@ Sidebar.prototype.addWaterPalette = function (expand) {
 		// this.createEdgeTemplateEntry('shape=flexArrow;endArrow=classic;startArrow=classic;html=1;fillColor=#ffffff;', 50, 50, '', 'Bidirectional Arrow', null, lineTags + 'bidirectional'),
 		// this.createEdgeTemplateEntry('shape=flexArrow;endArrow=classic;html=1;fillColor=#ffffff;', 50, 50, '', 'Arrow', null, lineTags + 'directional directed'),
 		this.createEdgeTemplateEntry('shape=link;html=1;', 50, 50, '', 'Pipe', null, lineTags + 'link'),
-		this.createEdgeTemplateEntry('endArrow=none;dashed=1;html=1;', 50, 50, '', 'Optional Pipe', null, lineTags + 'dashed undirected no'),
+		this.createEdgeTemplateEntry('image;html=1;labelBackgroundColor=#ffffff;image=/assets/water_deposit.png;', 50, 50, '', 'Pipe', null, lineTags + 'link'),
+		this.createEdgeTemplateEntry('endArrow=classic;dashed=0;html=1;', 50, 50, '', 'Conector', null, lineTags + 'dashed undirected no'),
 		// this.createEdgeTemplateEntry('endArrow=none;html=1;', 50, 50, '', 'Line', null, lineTags + 'simple undirected plain blank no'),
 		// this.createEdgeTemplateEntry('endArrow=classic;startArrow=classic;html=1;', 50, 50, '', 'Bidirectional Connector', null, lineTags + 'bidirectional'),
 		// this.createEdgeTemplateEntry('endArrow=classic;html=1;', 50, 50, '', 'Directional Connector', null, lineTags + 'directional directed')

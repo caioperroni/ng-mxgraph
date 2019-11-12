@@ -55417,7 +55417,7 @@ mxGraph.prototype.multigraph = true;
  * Specifies if edges are connectable. Default is false. This overrides the
  * connectable field in edges.
  */
-mxGraph.prototype.connectableEdges = false;
+mxGraph.prototype.connectableEdges = true;
 
 /**
  * Variable: allowDanglingEdges
