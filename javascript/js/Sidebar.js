@@ -76,7 +76,7 @@ Sidebar.prototype.init = function () {
 
 	this.addSearchPalette(true);
 	this.addGeneralPalette(false);
-	this.addWaterPalette(true);
+	this.addBeerPalette(true);
 	this.addMiscPalette(false);
 	this.addAdvancedPalette(false);
 	this.addBasicPalette(dir);
@@ -811,15 +811,16 @@ Sidebar.prototype.insertSearchHint = function (div, searchTerm, count, page, res
 /**
  * Adds the general palette to the sidebar.
  */
-Sidebar.prototype.addWaterPalette = function (expand) {
+Sidebar.prototype.addBeerPalette = function (expand) {
+	var sb = this;
 	var lineTags = 'line lines connector connectors connection connections arrow arrows ';
 
 	var fns = [
 
-		this.createVertexTemplateEntry('image;html=1;labelBackgroundColor=#ffffff;image=/assets/water_deposit.png', 120, 120, '', 'Water Deposit', null, null, 'rect rectangle box'),
-		this.createVertexTemplateEntry('image;html=1;labelBackgroundColor=#ffffff;image=/assets/mash_mixer.png', 120, 120, '', 'Mash Mixer', null, null, 'rect rectangle box'),
-		this.createVertexTemplateEntry('image;html=1;labelBackgroundColor=#ffffff;image=/assets/lauter_tun.png', 120, 120, '', 'Lauter Tun', null, null, 'rect rectangle box'),
-		this.createVertexTemplateEntry('image;html=1;labelBackgroundColor=#ffffff;image=/assets/global.svg', 120, 120, '', 'Ambient Temperature', null, null, 'rect rectangle box'),
+		this.createVertexTemplateEntry('image;html=1;labelBackgroundColor=#ffffff;image=/assets/water_deposit.png', 120, 120, '', 'Water Deposit', null, null, 'water deposit box'),
+		this.createVertexTemplateEntry('image;html=1;labelBackgroundColor=#ffffff;image=/assets/mash_mixer.png', 120, 120, '', 'Mash Mixer', null, null, 'mash mixer box'),
+		this.createVertexTemplateEntry('image;html=1;labelBackgroundColor=#ffffff;image=/assets/lauter_tun.png', 120, 120, '', 'Lauter Tun', null, null, 'lauter tun box'),
+		this.createVertexTemplateEntry('image;html=1;labelBackgroundColor=#ffffff;image=/assets/global.svg', 120, 120, '', 'Ambient Temperature', null, null, 'ambient temperature box'),
 		// this.createVertexTemplateEntry('rounded=0;whiteSpace=wrap;html=1;', 120, 60, '', 'Rectangle', null, null, 'rect rectangle box'),
 		// this.createVertexTemplateEntry('rounded=1;whiteSpace=wrap;html=1;', 120, 60, '', 'Rounded Rectangle', null, null, 'rounded rect rectangle box'),
 		// // Explicit strokecolor/fillcolor=none is a workaround to maintain transparent background regardless of current style
@@ -861,8 +862,31 @@ Sidebar.prototype.addWaterPalette = function (expand) {
 		// this.createEdgeTemplateEntry('shape=flexArrow;endArrow=classic;startArrow=classic;html=1;fillColor=#ffffff;', 50, 50, '', 'Bidirectional Arrow', null, lineTags + 'bidirectional'),
 		// this.createEdgeTemplateEntry('shape=flexArrow;endArrow=classic;html=1;fillColor=#ffffff;', 50, 50, '', 'Arrow', null, lineTags + 'directional directed'),
 		this.createEdgeTemplateEntry('shape=link;html=1;', 50, 50, '', 'Pipe', null, lineTags + 'link'),
-		this.createEdgeTemplateEntry('image;html=1;labelBackgroundColor=#ffffff;image=/assets/water_deposit.png;', 50, 50, '', 'Pipe', null, lineTags + 'link'),
 		this.createEdgeTemplateEntry('endArrow=classic;dashed=0;html=1;', 50, 50, '', 'Conector', null, lineTags + 'dashed undirected no'),
+
+		this.addEntry('pipe connector', function () {
+			var edge = new mxCell('Pipe', new mxGeometry(0, 0, 0, 0), 'endArrow=open;html=1;endSize=12;startArrow=diamondThin;startSize=14;startFill=0;edgeStyle=orthogonalEdgeStyle;');
+			edge.geometry.setTerminalPoint(new mxPoint(0, 0), true);
+			edge.geometry.setTerminalPoint(new mxPoint(160, 0), false);
+			edge.geometry.relative = true;
+			edge.edge = true;
+
+
+			var cell1 = new mxCell('0..n', new mxGeometry(1, 0, 0, 0), 'image;html=1;labelBackgroundColor=#ffffff;image=/assets/global.svg');
+			cell1.geometry.relative = false;
+			cell1.setConnectable(false);
+			cell1.vertex = true;
+			edge.insert(cell1);
+
+			var cell2 = new mxCell('1', new mxGeometry(1, 0, 0, 0), 'resizable=0;html=1;align=right;verticalAlign=top;labelBackgroundColor=#ffffff;fontSize=10;');
+			cell2.geometry.relative = true;
+			cell2.setConnectable(false);
+			cell2.vertex = true;
+			edge.insert(cell2);
+
+			return sb.createEdgeTemplateFromCells([edge], 160, 0, 'Pipe');
+		}),
+		this.createEdgeTemplateEntry('shape=filledEdge;rounded=0;endArrow=classic;strokeWidth=5;fillColor=#707070', 50, 50, '', 'Filled Edge'),
 		// this.createEdgeTemplateEntry('endArrow=none;html=1;', 50, 50, '', 'Line', null, lineTags + 'simple undirected plain blank no'),
 		// this.createEdgeTemplateEntry('endArrow=classic;startArrow=classic;html=1;', 50, 50, '', 'Bidirectional Connector', null, lineTags + 'bidirectional'),
 		// this.createEdgeTemplateEntry('endArrow=classic;html=1;', 50, 50, '', 'Directional Connector', null, lineTags + 'directional directed')

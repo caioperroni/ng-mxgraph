@@ -1,9 +1,3 @@
-/**
- * Copyright (c) 2006-2012, JGraph Ltd
- */
-/**
- * Constructs a new graph editor
- */
 EditorUi = function (editor, container, lightbox) {
 	mxEventSource.call(this);
 
@@ -65,12 +59,8 @@ EditorUi = function (editor, container, lightbox) {
 		this.toolbarContainer.onmousedown = textEditing;
 		this.diagramContainer.onselectstart = textEditing;
 		this.diagramContainer.onmousedown = textEditing;
-		this.sidebarContainer.onselectstart = textEditing;
-		this.sidebarContainer.onmousedown = textEditing;
-		// this.formatContainer.onselectstart = textEditing;
-		// this.formatContainer.onmousedown = textEditing;
-		// this.footerContainer.onselectstart = textEditing;
-		// this.footerContainer.onmousedown = textEditing;
+		// this.sidebarContainer.onselectstart = textEditing;
+		// this.sidebarContainer.onmousedown = textEditing;
 
 		if (this.tabContainer != null) {
 			// Mouse down is needed for drag and drop
@@ -2496,16 +2486,16 @@ EditorUi.prototype.refresh = function (sizeDidChange) {
 	}
 
 	var fw = (this.format != null) ? this.formatWidth : 0;
-	this.sidebarContainer.style.top = tmp + 'px';
-	this.sidebarContainer.style.width = effHsplitPosition + 'px';
+	// this.sidebarContainer.style.top = tmp + 'px';
+	// this.sidebarContainer.style.width = effHsplitPosition + 'px';
 	/* this.formatContainer.style.top = tmp + 'px';
 	this.formatContainer.style.width = fw + 'px';
 	this.formatContainer.style.display = (this.format != null) ? '' : 'none';*/
 
 	this.diagramContainer.style.left = (this.hsplit.parentNode != null) ? (effHsplitPosition + this.splitSize) + 'px' : '0px';
-	this.diagramContainer.style.top = this.sidebarContainer.style.top;
+	// this.diagramContainer.style.top = this.sidebarContainer.style.top;
 	// this.footerContainer.style.height = this.footerHeight + 'px';
-	this.hsplit.style.top = this.sidebarContainer.style.top;
+	// this.hsplit.style.top = this.sidebarContainer.style.top;
 	this.hsplit.style.bottom = (this.footerHeight + off) + 'px';
 	this.hsplit.style.left = effHsplitPosition + 'px';
 
@@ -2517,7 +2507,7 @@ EditorUi.prototype.refresh = function (sizeDidChange) {
 		this.menubarContainer.style.width = w + 'px';
 		this.toolbarContainer.style.width = this.menubarContainer.style.width;
 		var sidebarHeight = Math.max(0, h - this.footerHeight - this.menubarHeight - this.toolbarHeight);
-		this.sidebarContainer.style.height = (sidebarHeight - sidebarFooterHeight) + 'px';
+		// this.sidebarContainer.style.height = (sidebarHeight - sidebarFooterHeight) + 'px';
 		// this.formatContainer.style.height = sidebarHeight + 'px';
 		this.diagramContainer.style.width = (this.hsplit.parentNode != null) ? Math.max(0, w - effHsplitPosition - this.splitSize - fw) + 'px' : w + 'px';
 		// this.footerContainer.style.width = this.menubarContainer.style.width;
@@ -2546,7 +2536,7 @@ EditorUi.prototype.refresh = function (sizeDidChange) {
 			th = this.tabContainer.clientHeight;
 		}
 
-		this.sidebarContainer.style.bottom = (this.footerHeight + sidebarFooterHeight + off) + 'px';
+		// this.sidebarContainer.style.bottom = (this.footerHeight + sidebarFooterHeight + off) + 'px';
 		// this.formatContainer.style.bottom = (this.footerHeight + off) + 'px';
 		this.diagramContainer.style.bottom = (this.footerHeight + off + th) + 'px';
 	}
@@ -2569,7 +2559,7 @@ EditorUi.prototype.createTabContainer = function () {
 EditorUi.prototype.createDivs = function () {
 	this.menubarContainer = this.createDiv('geMenubarContainer');
 	this.toolbarContainer = this.createDiv('geToolbarContainer');
-	this.sidebarContainer = this.createDiv('geSidebarContainer');
+	// this.sidebarContainer = this.createDiv('geSidebarContainer');
 	// this.formatContainer = this.createDiv('geSidebarContainer geFormatContainer');
 	this.diagramContainer = this.createDiv('geDiagramContainer');
 	// this.footerContainer = this.createDiv('geFooterContainer');
@@ -2582,7 +2572,7 @@ EditorUi.prototype.createDivs = function () {
 	this.menubarContainer.style.right = '0px';
 	this.toolbarContainer.style.left = '0px';
 	this.toolbarContainer.style.right = '0px';
-	this.sidebarContainer.style.left = '0px';
+	// this.sidebarContainer.style.left = '0px';
 	// this.formatContainer.style.right = '0px';
 	// this.formatContainer.style.zIndex = '1';
 	this.diagramContainer.style.right = ((this.format != null) ? this.formatWidth : 0) + 'px';
@@ -2640,11 +2630,11 @@ EditorUi.prototype.createUi = function () {
 	}
 
 	// Creates the sidebar
-	this.sidebar = (this.editor.chromeless) ? null : this.createSidebar(this.sidebarContainer);
+	// this.sidebar = (this.editor.chromeless) ? null : this.createSidebar(this.sidebarContainer);
 
-	if (this.sidebar != null) {
-		this.container.appendChild(this.sidebarContainer);
-	}
+	// if (this.sidebar != null) {
+	// 	this.container.appendChild(this.sidebarContainer);
+	// }
 
 	// Creates the format sidebar
 	// this.format = (this.editor.chromeless || !this.formatEnabled) ? null : this.createFormat(this.formatContainer);
@@ -3587,14 +3577,14 @@ EditorUi.prototype.destroy = function () {
 		this.destroyFunctions = null;
 	}
 
-	var c = [this.sidebarContainer,
-	this.diagramContainer,
-	this.chromelessToolbar, this.hsplit, this.sidebarFooterContainer,
-	this.layersDialog];
+	// var c = [this.sidebarContainer,
+	// this.diagramContainer,
+	// this.chromelessToolbar, this.hsplit, this.sidebarFooterContainer,
+	// this.layersDialog];
 
-	for (var i = 0; i < c.length; i++) {
-		if (c[i] != null && c[i].parentNode != null) {
-			c[i].parentNode.removeChild(c[i]);
-		}
-	}
+	// for (var i = 0; i < c.length; i++) {
+	// 	if (c[i] != null && c[i].parentNode != null) {
+	// 		c[i].parentNode.removeChild(c[i]);
+	// 	}
+	// }
 };

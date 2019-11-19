@@ -1,11 +1,11 @@
-import { Component, AfterViewInit, ElementRef, ViewChild } from '@angular/core';
+import { Component, AfterViewInit, ElementRef, ViewChild, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-graph',
   templateUrl: './graph.component.html',
   styleUrls: ['./graph.component.css']
 })
-export class GraphComponent implements AfterViewInit {
+export class GraphComponent implements OnInit {
 
   constructor() { }
 
@@ -13,11 +13,13 @@ export class GraphComponent implements AfterViewInit {
   editorUi: EditorUi;
 
   @ViewChild('editor') editorElement: ElementRef;
+  // @ViewChild('sidebar2') sideElement: ElementRef;
 
-  ngAfterViewInit() {
+  ngOnInit() {
     const RESOURCE_BASE = 'assets/resources/grapheditor';
     const STYLE_PATH = 'assets/styles';
     const editorDiv = this.editorElement.nativeElement;
+    // const sideDiv = this.sideElement.nativeElement;
     const comp = this;
 
     mxResources.loadDefaultBundle = false;
@@ -40,6 +42,8 @@ export class GraphComponent implements AfterViewInit {
         editorDiv,
         undefined
       );
+      // const side = new Sidebar(comp.editorUi, sideDiv);
+
     }, function () {
       console.log('<center style="margin-top:10%;">Error loading resource files. Please check browser console.</center>');
     });

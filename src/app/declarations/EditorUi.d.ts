@@ -37,7 +37,7 @@ declare class EditorUi extends mxEventSource {
     hasScrollbars();
     hideCurrentMenu();
     hideDialog(cancel);
-    hsplitClickEnabled:false;
+    hsplitClickEnabled: false;
     hsplitPosition: number;
     init();
     initCanvas();
