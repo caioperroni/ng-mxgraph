@@ -799,7 +799,7 @@ var EditDiagramDialog = function (editorUi) {
 
 	// var obj = JSON.parse();
 
-	console.log(codec.getJsonModel(editorUi.editor.getGraph().getModel()));
+	// console.log(codec.getJsonModel(editorUi.editor.getGraph().getModel()));
 	var pretty1 = JSON.stringify(codec.getJsonModel(editorUi.editor.getGraph().getModel()), function (key, value) {
 		if (typeof value === 'object' && value !== null) {
 			if (cache.indexOf(value) !== -1) {

@@ -4163,7 +4163,9 @@ mxGraph.prototype.insertEdge = function (parent, id, value, source, target, styl
 mxGraph.prototype.createEdge = function (parent, id, value, source, target, style) {
 	// Creates the edge
 	var edge = new mxCell(value, new mxGeometry(), style);
-	edge.setId(id);
+	console.log('edge id: ' + id);
+
+	edge.setId(1);
 	edge.setEdge(true);
 	edge.geometry.relative = true;
 
@@ -4187,6 +4189,8 @@ mxGraph.prototype.createEdge = function (parent, id, value, source, target, styl
  * index - Optional index to insert the cells at. Default is to append.
  */
 mxGraph.prototype.addEdge = function (edge, parent, source, target, index) {
+	console.log('add edge');
+
 	return this.addCell(edge, parent, index, source, target);
 };
 

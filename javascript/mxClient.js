@@ -45461,7 +45461,7 @@ mxStylesheet.prototype.createDefaultEdgeStyle = function()
 	style[mxConstants.STYLE_ENDARROW] = mxConstants.ARROW_CLASSIC;
 	style[mxConstants.STYLE_VERTICAL_ALIGN] = mxConstants.ALIGN_MIDDLE;
 	style[mxConstants.STYLE_ALIGN] = mxConstants.ALIGN_CENTER;
-	style[mxConstants.STYLE_STROKECOLOR] = '#6482B9';
+	style[mxConstants.STYLE_STROKECOLOR] = 'red';
 	style[mxConstants.STYLE_FONTCOLOR] = '#446299';
 	
 	return style;
